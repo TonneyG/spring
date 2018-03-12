@@ -1,4 +1,4 @@
-package com.spring.ioc;
+package com.spring.ioc.xml;
 
 public class Piano implements Instrument{
 	

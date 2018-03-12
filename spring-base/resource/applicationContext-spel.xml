@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:p="http://www.springframework.org/schema/p"       
+	xmlns:util="http://www.springframework.org/schema/util"       
+    xmlns:mvc="http://www.springframework.org/schema/mvc"     
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"              
+    xsi:schemaLocation="                                               
+            http://www.springframework.org/schema/beans    
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context     
+            http://www.springframework.org/schema/context/spring-context.xsd    
+            http://www.springframework.org/schema/mvc    
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+            http://www.springframework.org/schema/tx   
+            http://www.springframework.org/schema/tx/spring-tx.xsd  
+            http://www.springframework.org/schema/aop  
+            http://www.springframework.org/schema/aop/spring-aop.xsd "  
+    default-autowire="byName">  
+	
+	<bean id="carl" class="xxx">
+		<!-- spel装配kenney对象的song属性 -->
+		<property name="song" value="#{kenney.song}"/>
+		<!-- spel装配songSelector的selectSong()方法 -->
+		<property name="song" value="#{songSelector.selectSong()}"/>
+		<!-- songSelector.selectSong()不为null,才会执行toUpperCase()方法 -->
+		<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
+		<!-- T()运算符会调用类作用的方法和常量 -->
+		<property name="song" value="#{T(java.lang.Math).PI}"/>
+		<!-- 一些运算都可以在#{}中完成,包括值比较、三元运算,下面两种等价 -->
+		<property name="song" value="#{kenney.song!=null?kenney.song:'love story'}"/>
+		<property name="song" value="#{kenney.song ?:'love story'}"/>
+		<!-- 还可以引用集合 -->
+		<property name="chosenCity" value="#{cities[1]}"/>
+		<!-- 可以使用查询运算符.?[] 筛选 需要的集合, .?^代表集合第一个值, .?$代表集合第二个值-->
+		<!-- 注入到bigCities属性符合条件的集合 -->
+		<property name="bigCities" value="#{cities.?[population gt 1000]}"/>
+		<!-- 甚至可以引用java.util.Properties集合中的值 -->
+		<property name="accessToken" value="#{settings['weixin.accessToken']}">
+	</bean>
+	
+	<util:list id="cities">
+		<bean class="xxx" p:name="beijing" p:population="1200"/>
+		<bean class="xxx" p:name="shanghai" p:population="1000"/>
+		<bean class="xxx" p:name="guangzhou" p:population="900"/>
+	</util:list>
+	<util:properties id="settings" location="classpath:settings.properties"/>
+</beans>  
