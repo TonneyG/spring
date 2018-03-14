@@ -78,5 +78,33 @@ package com.spring.qrcode;
         }
         return resMatrix;
     }
+    
+    public  static void createQRCodeImagesToZip(String zipName,List<String> fileNames,List<String> contents,String fileType,int imageWidth,int imageHeight,HttpServletResponse response){
+    	OutputStream os = null;
+		ZipOutputStream zos = null;
+		try {
+			os = response.getOutputStream();
+			zos = new ZipOutputStream(os);
+	    	response.setContentType("multipart/octet-stream");
+			response.addHeader("Content-Disposition", "attachment;filename="+new String(zipName.getBytes("UTF-8"),"ISO8859-1"));
+			for(int i=0;i<fileNames.size();i++){
+				ZipEntry entry = new ZipEntry(fileNames.get(i)+".jpg");  
+                // 设置压缩包的入口  
+                zos.putNextEntry(entry); 
+				BitMatrix matrix = LcdcsUtil.generateQRCodeMatrix(contents.get(i), 200, 200);
+				BufferedImage image = MatrixToImageWriter.toBufferedImage(matrix);
+				 ByteArrayOutputStream output = new ByteArrayOutputStream();
+				ImageIO.write(image,"jpg",output);
+				zos.write(output.toByteArray());
+			}
+			zos.flush();
+			os.flush();  
+		} catch (Exception e) {
+			logger.error("打包二维码图片失败",e);
+		}finally {
+			IOUtils.closeQuietly(zos);
+			IOUtils.closeQuietly(os);
+		}
+    }
 }
 */
