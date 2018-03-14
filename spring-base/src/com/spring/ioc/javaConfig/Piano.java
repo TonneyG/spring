@@ -2,7 +2,7 @@ package com.spring.ioc.javaConfig;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Piano implements Instrument{
 	
 	private String name = "钢琴";

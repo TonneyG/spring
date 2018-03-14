@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
-	xmlns:p="http://www.springframework.org/schema/p"       
+	xmlns:p="http://www.springframework.org/schema/p"  
+	xmlns:c="http://www.springframework.org/schema/c"     
     xmlns:mvc="http://www.springframework.org/schema/mvc"     
     xmlns:tx="http://www.springframework.org/schema/tx"  
     xmlns:aop="http://www.springframework.org/schema/aop"  
@@ -22,6 +23,9 @@
     <bean id="piano" class="com.spring.ioc.xml.Piano">
     	<constructor-arg value="love story"/>
     </bean>
+   	<!-- c命名空间方式构造bean -->
+   	<!-- <bean id="piano" class="com.spring.ioc.xml.Piano" c:song="love story"/> -->
+   	
     <!-- primary和autowire-candidate在byType装配模式下,可以避免两个同类型的bean引用冲突 -->
     <bean id="violin" class="com.spring.ioc.xml.Violin" primary="true" autowire-candidate="true"/>
     
