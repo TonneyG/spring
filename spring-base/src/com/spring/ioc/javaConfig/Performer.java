@@ -2,7 +2,7 @@ package com.spring.ioc.javaConfig;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Performer {
 	private String name;
 	private Instrument instrument;
