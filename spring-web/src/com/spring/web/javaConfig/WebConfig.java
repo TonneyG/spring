@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan
+@ComponentScan("com.spring.web.javaConfig")
 public class WebConfig extends WebMvcConfigurerAdapter{
 	//配置JSP视图解析器
 	@Bean
