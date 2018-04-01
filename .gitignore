@@ -1,0 +1,6 @@
+.settings/
+target/
+spring-base/.settings/
+spring-base/target/
+spring-web/.settings/
+spring-web/target/
