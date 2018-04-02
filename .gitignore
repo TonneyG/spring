@@ -1,6 +1,11 @@
 .settings/
 target/
 spring-base/.settings/
+<<<<<<< HEAD
 spring-base/target/
 spring-web/.settings/
+=======
+spring-web/.settings/
+spring-base/target/
+>>>>>>> refs/remotes/origin/master
 spring-web/target/
