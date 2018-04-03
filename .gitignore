@@ -7,5 +7,10 @@ spring-web/.settings/
 =======
 spring-web/.settings/
 spring-base/target/
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
 spring-web/target/
+=======
+spring-web/target/
+/build/
+>>>>>>> cb89b2b8cc4e397ecddf7d4c9ad6db44982a9ded
