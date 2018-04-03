@@ -29,6 +29,7 @@
   <modules>
   	<module>spring-base</module>
     <module>spring-web</module>
+    <module>spring-webflow</module>
   </modules>
   
   <dependencies>
