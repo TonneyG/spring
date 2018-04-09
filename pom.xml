@@ -30,6 +30,7 @@
   	<module>spring-base</module>
     <module>spring-web</module>
     <module>spring-webflow</module>
+    <module>spring-webflow2</module>
   </modules>
   
   <dependencies>
