@@ -38,7 +38,7 @@ public class IocJavaConfigTest {
 	@Autowired
 	private Performer performer;
 	@Autowired
-	private Instrument instrument;
+	private Instrument piano;
 	@Autowired
 	private DataSource dataSource;
 	//在进行@Autowired自动装配时,如果bean有无参构造器则调用有参构造器,否则使用无参构造器进行装配
@@ -58,8 +58,8 @@ public class IocJavaConfigTest {
 	//验证@Profile和@ActiveProfile
 	@Test
 	public void testInstrument(){
-		performer.setInstrument(instrument);
-		instrument.play();
+		performer.setInstrument(piano);
+		piano.play();
 	}
 	
 	@Test
