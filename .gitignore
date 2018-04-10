@@ -6,4 +6,6 @@ spring-web/.settings/
 spring-web/target/
 spring-webflow/.settings/
 spring-webflow/target/
+spring-security/.settings/
+spring-security/target/
 
